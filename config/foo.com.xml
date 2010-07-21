@@ -1,0 +1,21 @@
+<config>
+    <rule match="foo">
+        <rule match="">
+            <template>splash_controller.tpl</template>
+            <section>Generic</section>
+            <module provides="title">Helloworld</module>
+            <module>SplashScreen</module>
+        </rule>
+    </rule>
+    <rule match="">
+        <template>splash_controller.tpl</template>
+        <section>Generic</section>
+        <module provides="title">Helloworld</module>
+        <module>SplashScreen</module>
+    </rule>
+    <rule default="true">
+        <section>HTTP</section>
+        <option name="statuscode">404</option>
+        <template>404.tpl</template>
+    </rule>
+</config>
