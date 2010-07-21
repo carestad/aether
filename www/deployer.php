@@ -1,7 +1,7 @@
 <?php
 /* vim:set tabstop=4: vim:set shiftwidth=4: vim:set smarttab: vim:set expandtab: */
 
-require('../Aether.php');
+require_once('../Aether.php');
 
 /**
  * 

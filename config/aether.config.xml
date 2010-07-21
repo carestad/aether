@@ -1,9 +1,6 @@
 <config>
     <site name="*">
-        <option name="searchpath">/path/to/aether/here</option>
-        <option name="cache">on</option>
-        <option name="cacheClass">AetherCacheMemcache</option>
-        <option name="cacheOptions">localhost:11211</option>
+        <import>globals.xml</import>
         <urlRules>
             <rule match="foo">
                 <rule match="">
@@ -20,10 +17,17 @@
                 <module>SplashScreen</module>
             </rule>
             <rule default="true">
-                <section>Generic</section>
-                <module>Site/Status404</module>
+                <section>HTTP</section>
+                <option name="statuscode">404</option>
                 <template>404.tpl</template>
             </rule>
+        </urlRules>
+    </site>
+    <!-- Import example -->
+    <site name="foo.com">
+        <import>globals.xml</import>
+        <urlRules>
+            <import>foo.com.xml</import>
         </urlRules>
     </site>
 </config>
