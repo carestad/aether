@@ -50,8 +50,11 @@ class AetherModuleFactory {
                 $file = $path . $module . '.php';
             if (file_exists($file)) {
                 include_once($file);
-                $class = pathinfo($file, PATHINFO_FILENAME);
-                $class = ucfirst($class);
+                // Module class names based on module path
+                // E.g. modules/foo/bar/baz.php -> class FooBarBaz
+                $class = preg_split('/[\/_]+/', $module);
+                $class = array_map('ucfirst', $class);
+                $class = join('', $class);
                 $mod = new $class($sl, $options);
                 return $mod;
             }

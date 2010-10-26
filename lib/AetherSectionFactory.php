@@ -55,8 +55,11 @@ class AetherSectionFactory {
 
                 if (file_exists($file)) {
                     require_once($file);
-                    $class = pathinfo($file, PATHINFO_FILENAME);
-                    $class = ucfirst($class);
+                    // Section class names based on section path
+                    // E.g. sections/foo/bar/baz.php -> class FooBarBaz
+                    $class = preg_split('/[\/_]+/', $section);
+                    $class = array_map('ucfirst', $class);
+                    $class = join('', $class);
                     $aetherSection = new $class($sl);
                     return $aetherSection;
                 }
